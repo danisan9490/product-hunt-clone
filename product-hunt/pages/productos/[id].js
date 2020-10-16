@@ -18,6 +18,16 @@ const ContenedorProducto = styled.div`
    }
 `
 
+const CreadorProducto = styled.p`
+    padding: .5rem 2rem;
+    background-color: #DA552F;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+`
+
 const Producto = () => {
 
   // state del componente
@@ -87,6 +97,13 @@ const Producto = () => {
     })
   }
 
+  // Identifica si el comentario es del creador del producto
+  const esCreador = id => {
+    if (creador.id == id) {
+      return true;
+    }
+  }
+
   const agregarComentario = e => {
     e.preventDefault();
 
@@ -120,9 +137,9 @@ const Producto = () => {
 
         <div className="contenedor">
           <h1 css={css`
-                        text-align: center;
-                        margin-top: 5rem;
-                    `}>{nombre} </h1>
+              text - align: center;
+              margin - top: 5rem;
+              `}>{nombre} </h1>
 
           <ContenedorProducto>
             <div>
@@ -153,29 +170,30 @@ const Producto = () => {
               )}
 
               <h2 css={css`
-                                margin: 2rem 0;
-                            `}>Comentarios</h2>
+                margin: 2rem 0;
+                `}>Comentarios</h2>
 
               {comentarios.length === 0 ? "Aún no hay comentarios" : (
                 <ul>
                   {comentarios.map((comentario, i) => (
                     <li
-                      key={`${comentario.usuarioId}-${i}`}
+                      key={`${comentario.usuarioId} -${i} `}
                       css={css`
-                                                border: 1px solid #e1e1e1;
-                                                padding: 2rem;
-                                            `}
+                          border: 1px solid #e1e1e1;
+                          padding: 2rem;
+                          `}
                     >
                       <p>{comentario.mensaje}</p>
                       <p>Escrito por:
                                                 <span
                           css={css`
-                                                        font-weight:bold;
-                                                    `}
+                            font - weight: bold;
+                            `}
                         >
                           {''} {comentario.usuarioNombre}
                         </span>
                       </p>
+                      { esCreador(comentario.usuarioId) && <CreadorProducto>Es Creador</CreadorProducto>}
                     </li>
                   ))}
                 </ul>
@@ -194,12 +212,12 @@ const Producto = () => {
 
               <div
                 css={css`
-                                    margin-top: 5rem;
-                                `}
+margin - top: 5rem;
+`}
               >
                 <p css={css`
-                                    text-align: center;
-                                `}>{votos} Votos</p>
+text - align: center;
+`}>{votos} Votos</p>
 
                 {usuario && (
                   <Boton
