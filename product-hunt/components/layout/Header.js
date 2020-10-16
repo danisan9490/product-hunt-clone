@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/core';
 import Buscar from '../ui/Buscar';
 import Navegacion from './Navegacion';
 import Boton from '../ui/Boton';
@@ -28,9 +28,9 @@ const Logo = styled.p`
 const Header = () => {
 
 
-    const usuario = true;
+    const usuario = false;
 
-    return ( 
+    return (
         <header
             css={css`
                 border-bottom: 2px solid var(--gris3);
@@ -47,7 +47,7 @@ const Header = () => {
                     <Link href="/">
                         <Logo>P</Logo>
                     </Link>
-                    
+
 
                     <Buscar />
 
@@ -60,7 +60,7 @@ const Header = () => {
                         align-items: center;
                     `}
                 >
-                    { usuario ? (
+                    {usuario ? (
                         <>
                             <p
                                 css={css`
@@ -72,21 +72,21 @@ const Header = () => {
                             >Cerrar Sesión</Boton>
                         </>
                     ) : (
-                        <>
-                            <Link href="/">
-                                <Boton
-                                    bgColor="true"
-                                >Login</Boton>
-                            </Link>
-                            <Link href="/">
-                                <Boton>Crear Cuenta</Boton>
-                            </Link>
-                        </>
-                    ) }
+                            <>
+                                <Link href="/login">
+                                    <Boton
+                                        bgColor="true"
+                                    >Login</Boton>
+                                </Link>
+                                <Link href="/crear-cuenta">
+                                    <Boton>Crear Cuenta</Boton>
+                                </Link>
+                            </>
+                        )}
                 </div>
             </ContenedorHeader>
         </header>
-     );
+    );
 }
- 
+
 export default Header;

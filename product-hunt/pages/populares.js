@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 import Layout from '../components/layout/Layout';
 
 
-const Nosotros = () => (
+const Populares = () => (
   <div>
     <Layout>
-      <h1>Nosotros</h1>
+      <h1>Populares</h1>
     </Layout>
   </div>
 )
 
-export default Nosotros
+export default Populares;
