@@ -4,7 +4,6 @@ import useAutenticacion from '../hooks/useAutenticacion';
 
 const MyApp = props => {
   const usuario = useAutenticacion();
-
   const { Component, pageProps } = props;
 
   return (
@@ -19,4 +18,4 @@ const MyApp = props => {
   )
 }
 
-export default MyApp; 
+export default MyApp;

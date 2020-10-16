@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Layout from '../components/layout/Layout';
 
 
@@ -10,4 +10,4 @@ const Buscar = () => (
   </div>
 )
 
-export default Buscar;
+export default Buscar

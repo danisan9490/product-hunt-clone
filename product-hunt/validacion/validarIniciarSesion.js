@@ -17,4 +17,4 @@ export default function validarIniciarSesion(valores) {
   }
 
   return errores;
-} 
+}

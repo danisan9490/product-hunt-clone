@@ -9,6 +9,7 @@ import firebase from '../firebase';
 // validaciones
 import useValidacion from '../hooks/useValidacion';
 import validarIniciarSesion from '../validacion/validarIniciarSesion';
+
 const STATE_INICIAL = {
   email: '',
   password: ''

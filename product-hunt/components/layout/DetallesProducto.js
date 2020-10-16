@@ -80,12 +80,15 @@ const Votos = styled.div`
 const DetallesProducto = ({ producto }) => {
 
   const { id, comentarios, creado, descripcion, empresa, nombre, url, urlimagen, votos } = producto;
+
+
   return (
     <Producto>
       <DescripcionProducto>
         <div>
           <Imagen src={urlimagen} />
         </div>
+
         <div>
           <Link href="/productos/[id]" as={`/productos/${id}`}>
             <Titulo>{nombre}</Titulo>
@@ -100,6 +103,7 @@ const DetallesProducto = ({ producto }) => {
           <p>Publicado hace: {formatDistanceToNow(new Date(creado), { locale: es })} </p>
         </div>
       </DescripcionProducto>
+
       <Votos>
         <div> &#9650; </div>
         <p>{votos}</p>

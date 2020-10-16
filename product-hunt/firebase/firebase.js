@@ -33,8 +33,7 @@ class Firebase {
   async cerrarSesion() {
     await this.auth.signOut();
   }
-
 }
 
 const firebase = new Firebase();
-export default firebase; 
+export default firebase;

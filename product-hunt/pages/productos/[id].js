@@ -8,6 +8,7 @@ import Error404 from '../../components/layout/404';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { Campo, InputSubmit } from '../../components/ui/Formulario';
+import Boton from '../../components/ui/Boton';
 
 const ContenedorProducto = styled.div`
    @media (min-width:768px) {
@@ -28,7 +29,7 @@ const Producto = () => {
   const { query: { id } } = router;
 
   // context de firebase
-  const { firebase } = useContext(FirebaseContext);
+  const { firebase, usuario } = useContext(FirebaseContext);
 
   useEffect(() => {
     if (id) {
@@ -47,8 +48,7 @@ const Producto = () => {
 
   if (Object.keys(producto).length === 0) return 'Cargando...';
 
-  const { comentarios, creado, descripcion, empresa, nombre, url, urlimagen, votos } = producto;
-
+  const { comentarios, creado, descripcion, empresa, nombre, url, urlimagen, votos, creador } = producto;
 
   return (
     <Layout>
@@ -57,29 +57,34 @@ const Producto = () => {
 
         <div className="contenedor">
           <h1 css={css`
-        text-align: center;
-        margin-top: 5rem;
-    `}>{nombre} </h1>
+                        text-align: center;
+                        margin-top: 5rem;
+                    `}>{nombre} </h1>
 
           <ContenedorProducto>
             <div>
               <p>Publicado hace: {formatDistanceToNow(new Date(creado), { locale: es })} </p>
+              <p>Por: {creador.nombre} de {empresa} </p>
               <img src={urlimagen} />
               <p>{descripcion}</p>
 
-              <h2>Agrega tu comentario</h2>
-              <form>
-                <Campo>
-                  <input
-                    type="text"
-                    name="mensaje"
-                  />
-                </Campo>
-                <InputSubmit
-                  type="submit"
-                  value="Agregar Comentario"
-                />
-              </form>
+              {usuario && (
+                <>
+                  <h2>Agrega tu comentario</h2>
+                  <form>
+                    <Campo>
+                      <input
+                        type="text"
+                        name="mensaje"
+                      />
+                    </Campo>
+                    <InputSubmit
+                      type="submit"
+                      value="Agregar Comentario"
+                    />
+                  </form>
+                </>
+              )}
 
               <h2 css={css`
                                 margin: 2rem 0;
@@ -94,14 +99,35 @@ const Producto = () => {
             </div>
 
             <aside>
-              2
-        </aside>
+              <Boton
+                target="_blank"
+                bgColor="true"
+                href={url}
+              >Visitar URL</Boton>
+
+
+
+              <div
+                css={css`
+                                    margin-top: 5rem;
+                                `}
+              >
+                <p css={css`
+                                    text-align: center;
+                                `}>{votos} Votos</p>
+
+                {usuario && (
+                  <Boton>
+                    Votar
+                  </Boton>
+                )}
+              </div>
+            </aside>
           </ContenedorProducto>
         </div>
-
       </>
     </Layout>
   );
 }
 
-export default Producto; 
+export default Producto;

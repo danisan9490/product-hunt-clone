@@ -34,6 +34,7 @@ const CrearCuenta = () => {
     }
   }
 
+
   return (
     <div>
       <Layout>
@@ -75,7 +76,6 @@ const CrearCuenta = () => {
                 onBlur={handleBlur}
               />
             </Campo>
-
             {errores.email && <Error>{errores.email}</Error>}
 
             <Campo>
@@ -90,7 +90,6 @@ const CrearCuenta = () => {
                 onBlur={handleBlur}
               />
             </Campo>
-
             {errores.password && <Error>{errores.password}</Error>}
 
             {error && <Error>{error} </Error>}
@@ -106,4 +105,4 @@ const CrearCuenta = () => {
   )
 }
 
-export default CrearCuenta;
+export default CrearCuenta

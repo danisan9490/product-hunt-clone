@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { css} from '@emotion/core';
+import { css } from '@emotion/core';
 
 const InputText = styled.input`
     border: 1px solid var(--gris3);
@@ -20,27 +20,26 @@ const InputSubmit = styled.button`
     background-color: white;
     border: none;
     text-indent: -9999px;
-
     &:hover {
         cursor: pointer;
     }
 `;
 
 const Buscar = () => {
-    return ( 
+    return (
         <form
             css={css`
                 position: relative;
             `}
         >
-            <InputText 
-                type="text" 
+            <InputText
+                type="text"
                 placeholder="Buscar Productos"
             />
 
             <InputSubmit type="submit">Buscar</InputSubmit>
         </form>
-     );
+    );
 }
- 
+
 export default Buscar;
