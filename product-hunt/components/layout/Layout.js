@@ -1,15 +1,17 @@
-// import React from 'react';
+import React from 'react';
+import Link from 'next/link';
+import Header from './Header';
 
-// const Layout = props => {
-//   return (
-//     <>
-//       <h1>Header</h1>
+const Layout = props => {
+  return (
+    <>
+      <Header />
 
-//       <main>
-//         {props.children}
-//       </main>
-//     </>
-//   );
-// }
+      <main>
+        {props.children}
+      </main>
+    </>
+  );
+}
 
-// export default Layout; 
+export default Layout; 
