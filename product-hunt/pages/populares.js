@@ -1,9 +1,10 @@
-import React from 'react';
+import React from 'react'
 import Layout from '../components/layout/Layout';
 import DetallesProducto from '../components/layout/DetallesProducto';
 import useProductos from '../hooks/useProductos';
 
 const Populares = () => {
+
   const { productos } = useProductos('votos');
 
   return (
@@ -26,4 +27,4 @@ const Populares = () => {
   )
 }
 
-export default Populares;
+export default Populares

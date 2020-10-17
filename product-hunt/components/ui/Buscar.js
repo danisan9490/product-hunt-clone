@@ -18,7 +18,7 @@ const InputSubmit = styled.button`
     position: absolute;
     right: 1rem;
     top: 1px;
-    background-color: white;
+    background-color: transparent;
     border: none;
     text-indent: -9999px;
     &:hover {
@@ -27,6 +27,7 @@ const InputSubmit = styled.button`
 `;
 
 const Buscar = () => {
+
     const [busqueda, guardarBusqueda] = useState('');
 
     const buscarProducto = e => {
@@ -41,6 +42,7 @@ const Buscar = () => {
         })
     }
 
+
     return (
         <form
             css={css`
@@ -50,11 +52,11 @@ const Buscar = () => {
         >
             <InputText
                 type="text"
-                placeholder="Buscar Productos"
+                placeholder="Search Products"
                 onChange={e => guardarBusqueda(e.target.value)}
             />
 
-            <InputSubmit type="submit">Buscar</InputSubmit>
+            <InputSubmit type="submit">Search</InputSubmit>
         </form>
     );
 }

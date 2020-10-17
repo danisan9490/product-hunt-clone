@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-import { es } from 'date-fns/locale';
+import { enGB } from 'date-fns/locale';
 import { FirebaseContext } from '../../firebase';
 import Layout from '../../components/layout/Layout';
 import Error404 from '../../components/layout/404';
@@ -59,7 +59,7 @@ const Producto = () => {
     }
   }, [id]);
 
-  if (Object.keys(producto).length === 0 && !error) return 'Cargando...';
+  if (Object.keys(producto).length === 0 && !error) return 'Loading...';
 
   const { comentarios, creado, descripcion, empresa, nombre, url, urlimagen, votos, creador, haVotado } = producto;
 
@@ -136,6 +136,7 @@ const Producto = () => {
     guardarConsultarDB(true); // hay un COMENTARIO, por lo tanto consultar a la BD
   }
 
+  // función que revisa que el creador del producto sea el mismo que esta autenticado
   const puedeBorrar = () => {
     if (!usuario) return false;
 
@@ -175,14 +176,15 @@ const Producto = () => {
 
             <ContenedorProducto>
               <div>
-                <p>Publicado hace: {formatDistanceToNow(new Date(creado), { locale: es })} </p>
-                <p>Por: {creador.nombre} de {empresa} </p>
+                <p>Posted: {formatDistanceToNow(new Date(creado), { locale: enGB })} ago </p>
+                <p>Created by: {creador.nombre}</p>
+                <p>Company: {empresa}</p>
                 <img src={urlimagen} />
                 <p>{descripcion}</p>
 
                 {usuario && (
                   <>
-                    <h2>Agrega tu comentario</h2>
+                    <h2>Add your comment</h2>
                     <form
                       onSubmit={agregarComentario}
                     >
@@ -195,7 +197,7 @@ const Producto = () => {
                       </Campo>
                       <InputSubmit
                         type="submit"
-                        value="Agregar Comentario"
+                        value="Add Comment"
                       />
                     </form>
                   </>
@@ -203,9 +205,9 @@ const Producto = () => {
 
                 <h2 css={css`
                                     margin: 2rem 0;
-                                `}>Comentarios</h2>
+                                `}>Comments</h2>
 
-                {comentarios.length === 0 ? "Aún no hay comentarios" : (
+                {comentarios.length === 0 ? "No Comments" : (
                   <ul>
                     {comentarios.map((comentario, i) => (
                       <li
@@ -216,7 +218,7 @@ const Producto = () => {
                                                 `}
                       >
                         <p>{comentario.mensaje}</p>
-                        <p>Escrito por:
+                        <p>By:
                                                     <span
                             css={css`
                                                             font-weight:bold;
@@ -225,7 +227,7 @@ const Producto = () => {
                             {''} {comentario.usuarioNombre}
                           </span>
                         </p>
-                        { esCreador(comentario.usuarioId) && <CreadorProducto>Es Creador</CreadorProducto>}
+                        { esCreador(comentario.usuarioId) && <CreadorProducto>Author</CreadorProducto>}
                       </li>
                     ))}
                   </ul>
@@ -238,7 +240,7 @@ const Producto = () => {
                   target="_blank"
                   bgColor="true"
                   href={url}
-                >Visitar URL</Boton>
+                >Visit {empresa}</Boton>
 
 
 
@@ -249,13 +251,13 @@ const Producto = () => {
                 >
                   <p css={css`
                                         text-align: center;
-                                    `}>{votos} Votos</p>
+                                    `}>{votos} Votes</p>
 
                   {usuario && (
                     <Boton
                       onClick={votarProducto}
                     >
-                      Votar
+                      Vote
                     </Boton>
                   )}
                 </div>
@@ -265,9 +267,8 @@ const Producto = () => {
             { puedeBorrar() &&
               <Boton
                 onClick={eliminarProducto}
-              >Eliminar Producto</Boton>
+              >Delete Product</Boton>
             }
-
           </div>
         )}
 

@@ -29,7 +29,7 @@ const CrearCuenta = () => {
       await firebase.registrar(nombre, email, password);
       Router.push('/');
     } catch (error) {
-      console.error('Hubo un error al crear el usuario ', error.message);
+      console.error('Error', error.message);
       guardarError(error.message);
     }
   }
@@ -44,17 +44,17 @@ const CrearCuenta = () => {
               text-align: center;
               margin-top: 5rem;
             `}
-          >Crear Cuenta</h1>
+          >Create Account</h1>
           <Formulario
             onSubmit={handleSubmit}
             noValidate
           >
             <Campo>
-              <label htmlFor="nombre">Nombre</label>
+              <label htmlFor="nombre">Name</label>
               <input
                 type="text"
                 id="nombre"
-                placeholder="Tu Nombre"
+                placeholder="Name"
                 name="nombre"
                 value={nombre}
                 onChange={handleChange}
@@ -69,7 +69,7 @@ const CrearCuenta = () => {
               <input
                 type="email"
                 id="email"
-                placeholder="Tu Email"
+                placeholder="Email"
                 name="email"
                 value={email}
                 onChange={handleChange}
@@ -83,7 +83,7 @@ const CrearCuenta = () => {
               <input
                 type="password"
                 id="password"
-                placeholder="Tu Password"
+                placeholder="Password"
                 name="password"
                 value={password}
                 onChange={handleChange}
@@ -96,7 +96,7 @@ const CrearCuenta = () => {
 
             <InputSubmit
               type="submit"
-              value="Crear Cuenta"
+              value="Create Account"
             />
           </Formulario>
         </>

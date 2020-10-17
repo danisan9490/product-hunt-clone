@@ -7,7 +7,7 @@ const Error404 = () => {
                     margin-top: 5rem;
                     text-align: center;
                 `}
-  >No se puede mostrar</h1>);
+  >Unable to show</h1>);
 }
 
 export default Error404;

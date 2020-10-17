@@ -110,21 +110,21 @@ const NuevoProducto = () => {
                 text-align: center;
                 margin-top: 5rem;
               `}
-            >Nuevo Producto</h1>
+            >New Product</h1>
             <Formulario
               onSubmit={handleSubmit}
               noValidate
             >
 
               <fieldset>
-                <legend>Información General </legend>
+                <legend>General information</legend>
 
                 <Campo>
-                  <label htmlFor="nombre">Nombre</label>
+                  <label htmlFor="nombre">Name</label>
                   <input
                     type="text"
                     id="nombre"
-                    placeholder="Nombre del Producto"
+                    placeholder="Product Name"
                     name="nombre"
                     value={nombre}
                     onChange={handleChange}
@@ -135,11 +135,11 @@ const NuevoProducto = () => {
                 {errores.nombre && <Error>{errores.nombre}</Error>}
 
                 <Campo>
-                  <label htmlFor="empresa">Empresa</label>
+                  <label htmlFor="empresa">Company</label>
                   <input
                     type="text"
                     id="empresa"
-                    placeholder="Nombre Empresa o Compañia"
+                    placeholder="Company Name"
                     name="empresa"
                     value={empresa}
                     onChange={handleChange}
@@ -150,7 +150,7 @@ const NuevoProducto = () => {
                 {errores.empresa && <Error>{errores.empresa}</Error>}
 
                 <Campo>
-                  <label htmlFor="imagen">Imagen</label>
+                  <label htmlFor="imagen">Image</label>
                   <FileUploader
                     accept="image/*"
                     id="imagen"
@@ -169,7 +169,7 @@ const NuevoProducto = () => {
                     type="url"
                     id="url"
                     name="url"
-                    placeholder="URL de tu producto"
+                    placeholder="Company URL"
                     value={url}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -181,10 +181,10 @@ const NuevoProducto = () => {
               </fieldset>
 
               <fieldset>
-                <legend>Sobre tu Producto</legend>
+                <legend>About your product</legend>
 
                 <Campo>
-                  <label htmlFor="descripcion">Descripcion</label>
+                  <label htmlFor="descripcion">Description</label>
                   <textarea
                     id="descripcion"
                     name="descripcion"
@@ -204,7 +204,7 @@ const NuevoProducto = () => {
 
               <InputSubmit
                 type="submit"
-                value="Crear Producto"
+                value="Create Product"
               />
             </Formulario>
           </>

@@ -28,7 +28,7 @@ const Login = () => {
       await firebase.login(email, password);
       Router.push('/');
     } catch (error) {
-      console.error('Hubo un error al autenticar el usuario ', error.message);
+      console.error('Error', error.message);
       guardarError(error.message);
     }
   }
@@ -43,7 +43,7 @@ const Login = () => {
               text-align: center;
               margin-top: 5rem;
             `}
-          >Iniciar Sesión</h1>
+          >Log In</h1>
           <Formulario
             onSubmit={handleSubmit}
             noValidate
@@ -53,7 +53,7 @@ const Login = () => {
               <input
                 type="email"
                 id="email"
-                placeholder="Tu Email"
+                placeholder="Email"
                 name="email"
                 value={email}
                 onChange={handleChange}
@@ -67,7 +67,7 @@ const Login = () => {
               <input
                 type="password"
                 id="password"
-                placeholder="Tu Password"
+                placeholder="Password"
                 name="password"
                 value={password}
                 onChange={handleChange}
@@ -80,7 +80,7 @@ const Login = () => {
 
             <InputSubmit
               type="submit"
-              value="Iniciar Sesión"
+              value="Log In"
             />
           </Formulario>
         </>

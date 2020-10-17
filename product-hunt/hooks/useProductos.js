@@ -30,4 +30,4 @@ const useProductos = orden => {
   }
 }
 
-export default useProductos; 
+export default useProductos;

@@ -67,21 +67,21 @@ const Header = () => {
                                 css={css`
                                     margin-right: 2rem;
                                 `}
-                            >Hola: {usuario.displayName} </p>
+                            >Hi: {usuario.displayName} </p>
                             <Boton
                                 bgColor="true"
                                 onClick={() => firebase.cerrarSesion()}
-                            >Cerrar Sesión</Boton>
+                            >Log Out</Boton>
                         </>
                     ) : (
                             <>
                                 <Link href="/login">
                                     <Boton
                                         bgColor="true"
-                                    >Login</Boton>
+                                    >Log In</Boton>
                                 </Link>
                                 <Link href="/crear-cuenta">
-                                    <Boton>Crear Cuenta</Boton>
+                                    <Boton>Sign In</Boton>
                                 </Link>
                             </>
                         )}

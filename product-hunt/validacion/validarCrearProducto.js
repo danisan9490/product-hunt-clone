@@ -4,24 +4,24 @@ export default function validarCrearCuenta(valores) {
 
   // Validar el nombre del usuario
   if (!valores.nombre) {
-    errores.nombre = "El Nombre es obligatorio";
+    errores.nombre = "Name required";
   }
 
   // validar empresa
   if (!valores.empresa) {
-    errores.empresa = "Nombre de Empresa es obligatorio"
+    errores.empresa = "Company name required"
   }
 
   // validar la url
   if (!valores.url) {
-    errores.url = 'La URL del producto es obligatoria';
+    errores.url = 'URL required';
   } else if (!/^(ftp|http|https):\/\/[^ "]+$/.test(valores.url)) {
-    errores.url = "URL mal formateada o no válida"
+    errores.url = "URL not valid"
   }
 
   // validar descripción.
   if (!valores.descripcion) {
-    errores.descripcion = "Agrega una descripción de tu producto"
+    errores.descripcion = "Description required"
   }
 
 
